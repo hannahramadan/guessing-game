@@ -20,13 +20,21 @@ to-do:
 print("Hello, welcome to the guessing game!")
 player_name = input("What is your name? ")
 rand_num = random.randint(1,100)
-str_num = input("Please choose a number between 1 and 100: ")
-num = int(str_num)
+counter = 1
+
+while True:
+    str_num = input("Please choose a number between 1 and 100: ")
+    try:
+        num = int(str_num)
+    except:
+        print("Your entry needs to be an integer value.")
+        continue 
+    break
+
 while (num >100 or num < 1):
-    str_num = input("Are you high? I said between 1 and 100, please. ")
+    str_num = input("I said between 1 and 100, please. ")
     num = int(str_num)
 
-counter = 1
 while (num != rand_num):
     if (num < rand_num):
         print("Your guess is too low.")
